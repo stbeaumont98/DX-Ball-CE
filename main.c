@@ -33,7 +33,7 @@ int Tiles[18][20] = {
 	{ 0, 0, 0, 0, 0, 5, 4, 5, 5, 5, 4, 5, 5, 5, 4, 0, 0, 0, 0, 0 }
 };
 
-unsigned char OrangeWhiteColors[4] = { 0xBD, 0xB8, 0xB6, 0xB3 };
+static unsigned char OrangeWhiteColors[4] = { 0xBD, 0xB8, 0xB6, 0xB3 };
 
 int i, j, k, l;
 int PaddleX = 135, PaddleXCenter, PaddleYCenter = 228;
@@ -76,7 +76,9 @@ void OrangeWhiteTile(int x, int y, int i){
 void TileExplode(int i, int j){
 	for( k = 0; k < 3; k++ ) {
 		for( l = 0; l < 3; l++ ) {
-			Tiles[(i - 1) + k][(j - 1) + l] = 0;
+			if((((i - 1) + k) <= 17 && ((j - 1) + l) <= 19 && ((i - 1) + k) >= 0 && ((j - 1) + l) >= 0)) {
+				Tiles[(i - 1) + k][(j - 1) + l] = 0;			
+			}
 		}
 	}
 }
