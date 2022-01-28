@@ -1,0 +1,34 @@
+palettes:
+  - name: global_palette
+    fixed-entries:
+      - color: {index: 0, r: 255, g: 0, b: 0}
+      - color: {index: 1, r: 0, g: 0, b: 0}
+      - color: {index: 2, r: 255, g: 255, b: 255}
+      - color: {index: 3, r: 49, g: 49, b: 49}
+      - color: {index: 4, r: 74, g: 74, b: 74}
+      - color: {index: 5, r: 115, g: 115, b: 115}
+      - color: {index: 6, r: 140, g: 140, b: 140}
+      - color: {index: 7, r: 173, g: 173, b: 173}
+      - color: {index: 8, r: 206, g: 206, b: 206}
+      - color: {index: 9, r: 247, g: 247, b: 247}
+      - color: {index: 10, r: 66, g: 66, b: 255}
+    images: automatic
+
+converts:
+  - name: sprites
+    palette: global_palette
+    images:
+      - DX_Paddle.png
+    tilesets:
+      tile-width: 14
+      tile-height: 7
+      images:
+        - tileset.png
+
+outputs:
+  - type: c
+    include-file: gfx.h
+    palettes:
+      - global_palette
+    converts:
+      - sprites
